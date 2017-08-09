@@ -9,3 +9,10 @@ This is a **Google Chrome Extension** that will replace blank default background
 ![Sample 2](./samples/sample2.png "Sample Custom Background")
 
 ![Sample 3](./samples/sample3.png "Sample Custom Background")
+
+---
+
+### Credit:
+Images: [Unsplash](https://www.unsplash.com)
+
+**Special Thanks to [Linda Haviv](https://medium.com/@LindaHaviv). This extension is based upon her [Google Chrome Tutorial](https://medium.com/@LindaHaviv/the-beginner-s-guide-build-a-simple-chrome-extension-in-minutes-498308ea406a)**
