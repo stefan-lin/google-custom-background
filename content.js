@@ -17,6 +17,13 @@
   Put the client's screen resolution info into local persistent storage.
   It will return a boolean value indicate the status of operation.
 */
+// Global Variables
+//var google_viewport, google_body, google_footer, google_fbar;
+var google_eles;
+var delta = 500;
+var lastKeypressTime = 0;
+var flag = true;
+
 function set_default_size_to_local_storage(resolution){
   if(!resolution || !resolution['width'] || !resolution['height']){
     console.log(
@@ -98,6 +105,23 @@ function inject_unsplash_info_links(author_name, author_home){
 }
 
 /*
+  Function Name: read_dom
+  Parameters:    None
+  Return:        None
+
+  Load target DOM elements into global array.
+  IDs were given by Google.
+*/
+function read_dom(){
+  google_eles = [
+    document.getElementById('viewport'),
+    document.getElementById('body'),
+    document.getElementById('footer'),
+    document.getElementById('fbar')
+  ];
+}
+
+/*
   Function Name: query_random_image_from_unsplash
   Parameters:    None
   Return:        URL
@@ -107,6 +131,8 @@ function inject_unsplash_info_links(author_name, author_home){
   a URL path to a local default image if fail to download)
 */
 function query_random_image_from_unsplash(){
+  read_dom();
+
   fetch('https://api.unsplash.com/photos/random/?client_id=632c1d73955fbf286b85e73d858e8f82a583655b90426b2d914810912474a180&w=1920&h=1080')
     .then((response) => response.json())
     .then(function(response_json){
@@ -121,4 +147,33 @@ function query_random_image_from_unsplash(){
     });
 }
 
+/*
+  Function Name: double_keypress
+  Parameters:    None
+  Return:        None
+
+  Bring background image to the front, vice versa
+*/
+function double_keypress(){
+  for(i=0; i<google_eles.length; i++){
+    if(flag){
+      google_eles[i].classList.add('hidden-class');
+    }
+    else{
+      google_eles[i].classList.remove('hidden-class');
+    }
+  } // end for loop
+  flag = (flag)? false: true;
+}
+
 window.onload = query_random_image_from_unsplash();
+window.onkeydown = function (event){
+  if(event.shiftKey){
+    var thisKeypressTime = new Date();
+    if(thisKeypressTime - lastKeypressTime <= delta){
+      double_keypress();
+      thisKeypressTime = 0;
+    }
+    lastKeypressTime = thisKeypressTime;
+  }
+}

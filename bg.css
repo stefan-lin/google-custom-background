@@ -4,6 +4,10 @@ body#gsr.hp.vasq{
   background-position: center center;
 }
 
+.hidden-class{
+  visibility: hidden;
+}
+
 /*div[class^="gb_P"]{*/
 .gb_P{
   font-weight: bold;
