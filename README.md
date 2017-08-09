@@ -3,6 +3,10 @@
 #### Introduction
 This is a **Google Chrome Extension** that will replace blank default background with a random high-definition images downloaded from **Unsplash**
 
+#### Feature
+**Keyboard Shortcut**: 
+  * **double-press shift key**: bring background image to the front or back
+
 #### Sample
 ![Sample 1](./samples/sample1.png "Sample Custom Background")
 
