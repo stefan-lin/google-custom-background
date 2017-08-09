@@ -14,6 +14,10 @@ This is a **Google Chrome Extension** that will replace blank default background
 
 ![Sample 3](./samples/sample3.png "Sample Custom Background")
 
+![Toggle](./samples/toggle2.png "Toggle")
+
+**After pressing shift key twice**
+![Toggle](./samples/toggle.png "After double press shift key")
 ---
 
 ### Credit:
